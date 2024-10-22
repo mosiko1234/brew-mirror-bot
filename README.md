@@ -14,7 +14,7 @@ This project automates the process of mirroring Homebrew repositories and storin
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/mosiko1234/brew-mirror-bot.git
-   cd brew-mirror-automation
+   cd brew-mirror-bot
 
 2. **Set up AWS credentials**:
 Go to your repository settings on GitHub.
@@ -25,7 +25,7 @@ Under `Settings > Secrets > Actions`, add the following secrets:
 3. **Run OpenTofu to create the infrastructure**:
 Ensure you have OpenTofu installed.
 Apply the infrastructure using the following command:
-   ```bash
+```bash
 opentofu init
 opentofu apply
 This will set up the necessary AWS infrastructure, including the S3 bucket, Lambda function, and necessary permissions.
