@@ -1,0 +1,30 @@
+name: Brew Mirror Weekly Trigger
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' 
+  workflow_dispatch: 
+
+jobs:
+  mirror_brew:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup AWS CLI
+        uses: aws-actions/setup-cli@v2
+        with:
+          region: us-east-1
+
+      - name: Invoke Lambda Function
+        run: |
+          aws lambda invoke \
+            --function-name brew-mirror-lambda \
+            --invocation-type Event \
+            --log-type Tail \
+            response.json
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
