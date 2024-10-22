@@ -13,8 +13,8 @@ This project automates the process of mirroring Homebrew repositories and storin
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-repo/brew-mirror-automation.git
-   cd brew-mirror-automation```
+   git clone https://github.com/mosiko1234/brew-mirror-bot.git
+   cd brew-mirror-automation
 
 2. **Set up AWS credentials**:
 Go to your repository settings on GitHub.
